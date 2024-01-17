@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-flex justify-content-around">
+    <form action="/certs/add_cert/{{ user_info.id }}" method="post">
+        <div class="form-group mb-3 mt-5">
+            <h2>Add A Certification</h2>
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Flash AHHHHHHH!!!!</strong>
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <label for="certification_name">Certification Name:</label>
+            <input type="text" name="certification_name" class="form-control" id="certification_name">
+        </div> 
+        <div class="form-group mb-3">
+            <label for="certification_number">Certification Number:</label>
+            <input type="text" name="certification_number" class="form-control" id="certification_number">
+        </div>
+        <div class="form-group mb-3">
+            <label for="certification_expiration_date">Expiration Date:</label>
+            <input type="date" name="certification_expiration_date" class="form-control" id="certification_expiration_date">
+            <input type="submit" class="form-control col-6 mt-3" value="Add Cert">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-flex justify-content-around">
+    <form action="/user/create_user" method="post">
+        <div class="form-group mb-3 mt-5">
+            <h2>Register</h2>
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Flash AHHHHHHH!!!!</strong>
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" class="form-control" id="first_name">
+        </div> 
+        <div class="form-group mb-3">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" class="form-control" id="last_name">
+        </div>
+        <div class="form-group mb-3">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="form-control" id="email">
+        </div>
+        <div class="form-group mb-3">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control" id="password">
+        </div>
+        <div class="form-group mb-3">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" class="form-control" id="confirm_password" >
+            <input type="submit" class="form-control col-6 mt-3" value="Register">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

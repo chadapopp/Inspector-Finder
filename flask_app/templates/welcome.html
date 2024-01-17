@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="container text-center mt-4">Welcome to Turnaround/Project Workers Job Posting and Searching</h1>
+
+<div class="container mt-5 d-flex flex-column align-items-center gap-4">
+    <div class="card">
+        <h5 class="card-header">What We Are</h5>
+        <div class="card-body">
+            <h5 class="card-title">About Us</h5>
+            <p class="card-text">We are a website created by inspectors for inspectors. <br>
+                Looking for Turnaround or Project work to get you through until the next job?<br>
+                Want to be able to see whos available for work or let others know that you are not available?<br>
+                Or looking for qualified candidates to fill open positions?<br>
+                Sign up below to start you next career journey. Already a member login <a href="/users/user_login">here!</a></p>
+            <a href="/user/create_user" class="btn btn-success">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

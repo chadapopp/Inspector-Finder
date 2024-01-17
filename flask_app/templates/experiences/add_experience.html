@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-flex justify-content-around">
+    <form action="/experiences/add_experience/{{user_info.id}}" method="post">
+        <div class="form-group mb-3 mt-5">
+            <h2>Add Experience</h2>
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Flash AHHHHHHH!!!!</strong>
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <label for="position">Position / Title:</label>
+            <input type="text" name="position" class="form-control" id="position">
+        </div> 
+        <div class="form-group mb-3">
+            <label for="company_name">Company:</label>
+            <input type="text" name="company_name" class="form-control" id="company_name">
+        </div>
+        <div class="form-group mb-3">
+            <label for="start_date">Start Date:</label>
+            <input type="date" name="start_date" class="form-control" id="start_date">
+        </div>        
+        <div class="form-group mb-3">
+            <label for="end_date">End Date:</label>
+            <input type="checkbox" name="ongoing" id="ongoing"> Current Employer
+            <input type="date" name="end_date" class="form-control" id="end_date">
+        </div>
+        <div class="form-group mb-3">
+            <label for="description">Description:</label>
+            <input type="textarea" name="description" class="form-control" id="description">
+            <input type="submit" class="form-control col-6 mt-3" value="Add Experience">
+        </div>
+    </form>
+</div>
+
+{% block script %}
+<script>
+    function toggleEndDate() {
+        var endDateInput = document.getElementById("end_date");
+        endDateInput.disabled = document.getElementById("ongoing").checked;
+    }
+
+</script>
+{% endblock %}
+
+{% endblock %}

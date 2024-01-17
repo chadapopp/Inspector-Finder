@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="d-flex justify-content-between mt-5 mb-5">
+    <h1>All Users for {{company_info.company_name}}</h1>
+    <a href="/admin/add_user" class="btn btn-primary">Add User</a>
+  </div>
+  <table class="table">
+    <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password Hashed</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        {% for user in all_users %}
+        <tbody>
+          <tr>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td class="d-flex"><a href="/users/edit/{{user.id}}" class="btn btn-primary">Edit User</a>
+                <a href="/users/delete/{{user.id}}" class="btn btn-danger">Delete User</a>
+            </td>
+          </tr>
+
+        </tbody>
+        {% endfor %}
+      </table>
+</div>
+
+{% endblock %}

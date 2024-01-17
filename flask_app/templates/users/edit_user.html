@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-flex justify-content-around">
+    <form action="/users/edit_user/{{ user_info.id }}" method="post" enctype="multipart/form-data">
+        <div class="form-group mb-3 mt-5">
+            <h2>Editing {{user_info.first_name}} {{user_info.last_name}}'s Information</h2>
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" class="form-control" id="first_name" value="{{user_info.first_name}}">
+                <input type="hidden" name="user_id" class="form-control" id="user_id">
+            </div> 
+            <div class="form-group mb-3">
+                <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" class="form-control" id="last_name" value="{{user_info.last_name}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="form-control" id="email" value="{{user_info.email}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" name="phone_number" class="form-control" id="phone_number" value="{{user_info.phone_number}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="city">City:</label>
+            <input type="text" name="city" class="form-control" id="city" value="{{user_info.city}}">
+        </div>        
+        <div class="form-group mb-3">
+            <label for="state">State:</label>
+            <select name="state" class="form-control" id="state">
+                {% for state in states %}
+                    <option value="{{ state }}" {% if user_info.state == state %}selected{% endif %}>{{ state }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="profile_picture">Profile Picture:</label>
+            <input type="file" name="profile_picture" class="form-control" id="profile_picture" value="{{user_info.profile_picture}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control" id="password" value="{{user_info.password}}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" class="form-control" id="confirm_password" >
+            <input type="submit" class="form-control col-6 mt-3" value="Edit User">
+        </div>
+    </form>
+</div>
+
+<div>
+    <a href="/certs/add_cert/{{user_info.id}}" class="btn btn-success">Add Certs</a>
+</div>
+{% endblock %}

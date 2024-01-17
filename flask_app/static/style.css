@@ -1,0 +1,103 @@
+.welcome-buttons {
+    border: 2px solid black;
+    border-radius: 2%;
+    padding: 30px;
+    background-color: #cccccc;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    width: 40%;
+}
+
+.welcome-buttons a{
+    text-decoration: none;
+    color: black;
+}
+
+.welcome-buttons:hover {
+    border-radius: 5%;
+    background-color: rgb(113, 113, 116);
+}
+
+.select-button {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 20px;
+
+}
+.buttons {
+    border: 2px solid black;
+    border-radius: 5%;
+    padding: 30px;
+    background-color: #cccccc;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.buttons a{
+    text-decoration: none;
+    color: black;
+}
+
+.buttons:hover {
+    border-radius: 5%;
+    background-color: rgb(113, 113, 116);
+}
+
+.reports {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.equipment-select {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.equipment-select a {
+    text-decoration: none;
+    color: black;
+    padding: 50px;
+}
+
+.equipment-select li:hover {
+    background-color: gray;
+}
+
+.equipment-select li {
+    border: 2px solid black;
+    background-color: lightgray;
+    border-radius: 10px;
+
+}
+
+.equip-header {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.welcome {
+    margin-top: 70px;
+}
+
+.profile-picture {
+    max-width: 40%;
+    border-radius: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture-nav {
+    max-width: 10%;
+    border-radius: 50%;
+}

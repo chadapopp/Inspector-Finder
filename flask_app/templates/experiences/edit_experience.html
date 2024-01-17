@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="d-flex justify-content-around">
+    <form action="/experiences/update/{{experience.id}}" method="post">
+        <div class="form-group mb-3 mt-5">
+            <h2>Edit Experience</h2>
+            <label for="position">Position / Title:</label>
+            <input type="text" name="position" class="form-control" id="position" value="{{ experience.position }}">
+        </div> 
+        <div class="form-group mb-3">
+            <label for="company_name">Company:</label>
+            <input type="text" name="company_name" class="form-control" id="company_name" value="{{ experience.company_name }}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="start_date">Start Date:</label>
+            <input type="date" name="start_date" class="form-control" id="start_date" value="{{ experience.start_date }}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="end_date">End Date:</label>
+            <input type="date" name="end_date" class="form-control" id="end_date" value="{{ experience.end_date }}">
+        </div>
+        <div class="form-group mb-3">
+            <label for="description">Description:</label>
+            <input type="textarea" name="description" class="form-control" id="description" value="{{ experience.description }}">
+            <input type="submit" class="form-control col-6 mt-3" value="Update Experience">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
